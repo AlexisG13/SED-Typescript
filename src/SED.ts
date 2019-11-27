@@ -4,6 +4,23 @@ import * as fs from 'fs';
 import * as fh from './file-handler';
 import { validCommand, validFile } from './regex-handler';
 
+interface Arguments {
+	e: (string | number)[] | undefined;
+	f: (string | number)[] | undefined;
+	[x: string]: unknown;
+	_: (string | number)[];
+	i: boolean;
+	n: boolean;
+}
+
+const argv = yargs.options({
+	e: { type: 'array', nargs: 1 },
+	f: { type: 'array', nargs: 1 },
+	i: { type: 'boolean', default: false, nargs: 1 },
+	n: { type: 'boolean', default: false, nargs: 0 },
+	_: { type: 'array' }
+}).argv;
+
 // Define yargs keys with their respective conditions
 yargs.nargs('e', 1);
 yargs.boolean('n');
