@@ -1,0 +1,28 @@
+{
+  "name": "Applaudo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pato": "tsc && npx prettier ./Week2/Week2HomeWork/**/*.js --write",
+    "sed": "node ./Week2/Week2HomeWork/SED.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0"
+  },
+  "dependencies": {
+    "@types/node": "^12.12.14",
+    "@types/yargs": "^13.0.3",
+    "express": "^4.17.1",
+    "readline-sync": "^1.4.10",
+    "yargs": "^15.0.2"
+  }
+}
