@@ -9,19 +9,7 @@ export function fileExists(file: string): boolean {
 	return false;
 }
 
-export function readFile(file: string): string[] {
-	let lines: string[] = [];
-	try {
-		let data = fs.readFileSync(file);
-		lines = data.toString().split('\n');
-		return lines;
-	} catch (e) {
-		console.log('Error when reading the file!');
-		process.exit();
-		return lines;
-	}
-}
-
+//Delete temporary file
 export function unlinkFile(file: string) {
 	fs.unlink(file, function(err) {
 		if (err) console.log('Error deleting the old file :(');
@@ -33,7 +21,8 @@ export function unlinkFile(file: string) {
 	});
 }
 
-export function readScriptFile(file: string): string[] {
+//Get each line from a file
+export function readFile(file: string): string[] {
 	let instructions: string[];
 	let data = fs.readFileSync(file);
 	instructions = data.toString().split('\n');

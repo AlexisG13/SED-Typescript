@@ -5,14 +5,14 @@ export function Substitute(
 	line: string,
 	command: string,
 	file: string,
-	istate: boolean
+	iState: boolean
 ): string {
 	const [type, oldWord, newWord, flag] = command.split('/');
 	let regObj = new RegExp(oldWord);
 	if (flag.includes('g')) regObj = new RegExp(oldWord, 'g');
 	let newLine = line.replace(regObj, newWord);
 	if (flag.includes('p') && newLine !== line) {
-		if (istate) fh.saveLine(newLine, file);
+		if (iState) fh.saveLine(newLine, file);
 		else console.log(newLine);
 	}
 	return newLine;
@@ -22,8 +22,11 @@ export function Substitute(
 export function getScriptCommands(file: string, args: string[]) {
 	let instructions;
 	const newArray: string[] = [];
-	if (!fh.fileExists(file)) process.exit();
-	instructions = fh.readScriptFile(file);
+	if (!fh.fileExists(file)) {
+		console.error(`Couldn't open file ${file}: No such file or directory`);
+		process.exit();
+	}
+	instructions = fh.readFile(file);
 	instructions.forEach(instruction => {
 		newArray.push(instruction);
 	});
