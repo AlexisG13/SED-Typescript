@@ -4,8 +4,8 @@ export function saveLine(line: string, file: string) {
 	fs.appendFileSync(file + '-copy', line + '\n');
 }
 
-export function fileExists(file: string):boolean{
-	if(fs.existsSync(file)) return true;
+export function fileExists(file: string): boolean {
+	if (fs.existsSync(file)) return true;
 	return false;
 }
 

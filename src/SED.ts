@@ -49,9 +49,9 @@ function parseCommands(argos: Arguments, file: string) {
 	let save = false;
 	if (argos.n) print = false;
 	if (argos.i !== undefined) {
-		if(argos.i!==''){
-			if(!rh.validateExtension(argos.i)){
-				console.error("Wrong extension format");
+		if (argos.i !== '') {
+			if (!rh.validateExtension(argos.i)) {
+				console.error('Wrong extension format');
 				process.exit();
 			}
 		}
