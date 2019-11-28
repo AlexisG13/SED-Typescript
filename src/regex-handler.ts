@@ -1,16 +1,14 @@
-const commandRegex = /^s\/[^\/]+\/[^\/]+\/(g?p?|p?g?)?$/;
-const fileRegex = /^[^\/]+\.[^\/]+/;
+const commandRegex = /^s\/[^\/]+\/[^\/]+\/(p|g|pg|gp)?$/;
+const extensionRegex = /[^\.\/\;]/;
 
-export function validCommand(command: string) {
-  if (commandRegex.test(command)) return;
-  else {
-   console.error(new Error("Unknown command entered!"));
-    process.exit();
-  }
+//Validate a command
+export function validateCommands(command: string): boolean {
+	if (!commandRegex.test(command)) return false;
+	return true;
 }
 
-export function validFile(file: string): boolean {
-  if (fileRegex.test(file)) return true;
-  else return false;
+//Validate a extension 
+export function validateExtension(extension: string): boolean {
+	if (extensionRegex.test(extension)) return true;
+	return false;
 }
-
