@@ -21,8 +21,6 @@
   "dependencies": {
     "@types/node": "^12.12.14",
     "@types/yargs": "^13.0.3",
-    "express": "^4.17.1",
-    "readline-sync": "^1.4.10",
     "yargs": "^15.0.2"
   }
 }
